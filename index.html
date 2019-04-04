@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Reset -->
+    <link rel="reset" href="assets/css/reset.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+
+        <div class="row header-row">
+            <div class="col-sm-12 text-center">
+                <h1>Star Wars RPG</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 text-center mb-3 mt-5" id="character-select">
+                <h4>======  SELECT YOUR CHARACTER   =====</h4>
+            </div>
+        </div>
+        <!-- Character images here // will be populated by js file -->
+        <div class="row character-row"></div>
+
+        <!-- Defender (user) section -->
+        <div class="row" id="defender-section">
+            <div class="col-sm-4 text-center">
+                <h4>YOUR CHARACTER</h4>
+                <!-- PLAYER CHARACTER HERE -->
+            </div>
+            <div class="col-sm-4 text-center"></div>
+            <div class="col-sm-4 text-center">
+                <h4>ATTACKER</h4>
+                <!-- PLAYER STATS HERE -->
+            </div>
+        </div>
+
+        <div class="row" id="opponent-section">
+            <div class="col-sm-4">
+                <!-- PLAYER IMAGE HERE -->
+                <!-- PLAYER HP HERE -->
+            </div>
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <!-- OPPONENT IMAGE HERE -->
+                <!-- OPPONENT HP HERE -->
+            </div>
+        </div>
+
+        <script src="assets/javascript/game.js"></script>
+
+    </div>
+</body>
+</html>
