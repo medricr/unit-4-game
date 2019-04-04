@@ -95,8 +95,6 @@ Document Ready
         if player is dead
             PLAYER LOSES
         if opponent is killed
-            call opponent-killed
+            replace opponent with the next one that the player selects
+    repeat until all opponents are dead or player is dead
 
-===========================================
-UNIT 4 GAME CODE
-===========================================
