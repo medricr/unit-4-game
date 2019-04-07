@@ -30,10 +30,10 @@ opponent = new playerCard();
 
 // the array holding all potential user characters/opponents
 var characterArray = [
-    opponent0=new playerCard(6,5,"Obi-Wan",100,"../unit-4-game/assets/images/abstract-4.jpg"),
-    opponent1=new playerCard(4,7,"General Grevious",200,"../unit-4-game/assets/images/abstract-3.jpg"),
-    opponent2=new playerCard(4,7,"Yoda",200,"../unit-4-game/assets/images/abstract-2.jpg"),
-    opponent3=new playerCard(4,7,"Rey",200,"../unit-4-game/assets/images/abstract-1.jpg"),
+    opponent0=new playerCard(10,5,"Obi-Wan",100,"../unit-4-game/assets/images/obi_wan.jpg"),
+    opponent1=new playerCard(4,10,"General Grievous",150,"../unit-4-game/assets/images/gen_grievous.jpg"),
+    opponent2=new playerCard(8,4,"Master Yoda",200,"../unit-4-game/assets/images/yoda.jpg"),
+    opponent3=new playerCard(6,8,"Darth Maul",125,"../unit-4-game/assets/images/darth_maul.jpg"),
 ];
 
 // Set up character selection row
@@ -42,11 +42,11 @@ jQuery.each(characterArray,function(i,val) {
     var newdiv=$('<div class="col-sm-3 text-center"></div>');  
     // put that image into the div
     newdiv.prepend(val.img);
+    // add the character name
+    newdiv.prepend(val.name);
     // give the image an ID that matches its index in characterArray
     newdiv.attr("id","opponent" + i);
     
-    
-
     // place the new div into the character Row
     $(".character-row").append(newdiv);
 });
@@ -76,14 +76,13 @@ $(".col-sm-3").on("click",function () {
         var opId = this.id[this.id.length-1];
         opponent = characterArray[opId];
         $("#opponent" + opId).append('<h4>HP: <span id="opponent-hp"></span></h4>');
-
         $("#opponent" + opId).appendTo("#battle-row");
+        $("#opponent" + opId).addClass("op");
         // $("#attacker-section").append('<h4>HP: <span id="opponent-hp"></span></h4>');
         // $("#opponent" + opId).remove();
         alert("opponent: " + opponent.name);
     }
 });
-
 // when the user clicks on the attack button...
 $(".atk-btn").on("click",function() {
     // increase the users attack power
@@ -101,17 +100,13 @@ $(".atk-btn").on("click",function() {
         playerWin=true;
         opponentDead=true;
         opponentChosen=false;
-        // track the number of enemies killed
-        opponentsKilled++;
         // and delete the div, as it will not be used again
-        $("#attacker-section").empty();
+        $(".op").remove();
     }
     else if(user.hp <= 0) {
         alert("Player loses!")
     }
 
+$(".reset-btn").on("click",function() {location.reload()});
 });
-
-
-
 });
