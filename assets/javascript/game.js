@@ -67,8 +67,7 @@ $(".col-sm-3").on("click",function () {
         $("#opponent" + playerId).append('<h4>HP: <span id="user-hp"></span></h4>');
         // and move that image to the appropriate section
         $("#opponent" + playerId).prependTo("#battle-row");
-        // $("#defender-section").append('<h4>HP: <span id="user-hp"></span></h4>');
-        alert("player: " + user.name);
+        
     }
     // if the user has not chosen an opponent yet, repeat the process above for the attacker
     else if(!opponentChosen) {
@@ -78,9 +77,7 @@ $(".col-sm-3").on("click",function () {
         $("#opponent" + opId).append('<h4>HP: <span id="opponent-hp"></span></h4>');
         $("#opponent" + opId).appendTo("#battle-row");
         $("#opponent" + opId).addClass("op");
-        // $("#attacker-section").append('<h4>HP: <span id="opponent-hp"></span></h4>');
-        // $("#opponent" + opId).remove();
-        alert("opponent: " + opponent.name);
+        
     }
 });
 // when the user clicks on the attack button...
@@ -95,7 +92,7 @@ $(".atk-btn").on("click",function() {
     $("#opponent-hp").text(opponent.hp);
     // if the opponent is dead
     if(opponent.hp <= 0) {
-        alert("player wins!")
+        alert("YOU WIN!!");
         // reset pertinant variables
         playerWin=true;
         opponentDead=true;
@@ -104,7 +101,7 @@ $(".atk-btn").on("click",function() {
         $(".op").remove();
     }
     else if(user.hp <= 0) {
-        alert("Player loses!")
+        alert("YOU LOSE!!");
     }
 
 $(".reset-btn").on("click",function() {location.reload()});
