@@ -4,9 +4,6 @@ var opponentChosen=false;
 var playerDead=false;
 var opponentDead=false;
 var playerWin=false;
-
-var opponentsKilled=0;
-
 // the player card obejct that will be used to initialize the characters
 function playerCard(atkPwr,ctAtkPwr,name,hp,img) {
     // character attack power
@@ -23,11 +20,9 @@ function playerCard(atkPwr,ctAtkPwr,name,hp,img) {
     this.img='<img id="char" class="center" src="' + img + '">';
     this.isplayer=false;
 }
-
 // create user and opponent variables as instances of playerCard
 user = new playerCard();
 opponent = new playerCard();
-
 // the array holding all potential user characters/opponents
 var characterArray = [
     opponent0=new playerCard(10,5,"Obi-Wan",100,"../unit-4-game/assets/images/obi_wan.jpg"),
@@ -35,7 +30,6 @@ var characterArray = [
     opponent2=new playerCard(8,4,"Master Yoda",200,"../unit-4-game/assets/images/yoda.jpg"),
     opponent3=new playerCard(6,8,"Darth Maul",125,"../unit-4-game/assets/images/darth_maul.jpg"),
 ];
-
 // Set up character selection row
 jQuery.each(characterArray,function(i,val) {
     // create a new div to hold the character image
@@ -45,18 +39,14 @@ jQuery.each(characterArray,function(i,val) {
     // add the character name
     newdiv.prepend(val.name);
     // give the image an ID that matches its index in characterArray
-    newdiv.attr("id","opponent" + i);
-    
+    newdiv.attr("id","opponent" + i);   
     // place the new div into the character Row
     $(".character-row").append(newdiv);
 });
-
 // program is ready to fire
 $(document).ready(function() {
-
 // when the user clicks on a character image...
 $(".col-sm-3").on("click",function () {
-
     // if the user has not chosen a character yet...
     if(!playerChosen) {
         playerChosen = true;
@@ -66,8 +56,7 @@ $(".col-sm-3").on("click",function () {
         // append an hp tracker to the div
         $("#opponent" + playerId).append('<h4>HP: <span id="user-hp"></span></h4>');
         // and move that image to the appropriate section
-        $("#opponent" + playerId).prependTo("#battle-row");
-        
+        $("#opponent" + playerId).prependTo("#battle-row");        
     }
     // if the user has not chosen an opponent yet, repeat the process above for the attacker
     else if(!opponentChosen) {
@@ -76,8 +65,7 @@ $(".col-sm-3").on("click",function () {
         opponent = characterArray[opId];
         $("#opponent" + opId).append('<h4>HP: <span id="opponent-hp"></span></h4>');
         $("#opponent" + opId).appendTo("#battle-row");
-        $("#opponent" + opId).addClass("op");
-        
+        $("#opponent" + opId).addClass("op");        
     }
 });
 // when the user clicks on the attack button...
@@ -103,7 +91,6 @@ $(".atk-btn").on("click",function() {
     else if(user.hp <= 0) {
         alert("YOU LOSE!!");
     }
-
 $(".reset-btn").on("click",function() {location.reload()});
 });
 });
